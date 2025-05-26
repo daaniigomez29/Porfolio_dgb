@@ -1,0 +1,30 @@
+---
+import Briefcase from "../icons/Briefcase.astro";
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+    {
+    title: "Application UI code in Tailwind CSS",
+    description: "Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.",
+    date: "February 2022"
+    },
+    {
+    title: "Application UI code in Tailwind CSS",
+    description: "Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.",
+    date: "February 2022"
+    }
+]
+---
+
+<h1 class="text-3xl font-bold flex gap-x-3 items-center"><Briefcase/> Experiencia laboral</h1>
+
+<div class="pt-5">   
+<ol class="relative border-s border-gray-200 dark:border-gray-700">   
+    
+    {EXPERIENCE.map(experience => (
+        <ExperienceItem {...experience}/>
+    ))}
+</ol>
+
+
+</div>
