@@ -1,24 +1,26 @@
 ---
-import Briefcase from "../icons/Briefcase.astro";
 import ExperienceItem from "./ExperienceItem.astro";
 
 const EXPERIENCE = [
     {
-    title: "Application UI code in Tailwind CSS",
-    description: "Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.",
-    date: "February 2022"
+    title: "Página web oficial para Conforzone Eficiencias",
+    company: "Conforzone Eficiencias",
+    description: "Desarrollo y mantenimiento de la página oficial de Conforzone Eficiencias, una página web para usuarios que necesiten consultar servicios relacionados con la climatización en su inmueble. Responsable de todo el ciclo de desarrollo utilizando tecnologías como Angular para el frontend y Spring Boot para el backend.",
+    date: "Febrero 2025 - Mayo 2025",
+    link: "#conforzone"
     },
     {
-    title: "Application UI code in Tailwind CSS",
-    description: "Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.",
-    date: "February 2022"
+    title: "Programador Full Stack (Prácticas)",
+    company: "Eviden / Atos",
+    description: "Desarrollo de aplicación web realizado entre 5 personas para la reserva de sitios dentro de la empresa. Aplicación realizada con Spring Boot para el backend y Angular 16 para el frontend.",
+    date: "Mayo 2024 - Junio 2024",
+    link: ""
     }
 ]
 ---
 
-<h1 class="text-3xl font-bold flex gap-x-3 items-center"><Briefcase/> Experiencia laboral</h1>
 
-<div class="pt-5">   
+<div class="pt-5 mx-3">   
 <ol class="relative border-s border-gray-200 dark:border-gray-700">   
     
     {EXPERIENCE.map(experience => (

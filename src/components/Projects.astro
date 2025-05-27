@@ -1,0 +1,97 @@
+---
+import AngularIcon from "../icons/AngularIcon.astro";
+import GitHubIcon from "../icons/GitHubIcon.astro";
+import ProjectIcon from "../icons/ProjectIcon.astro";
+import SpringBootIcon from "../icons/SpringBootIcon.astro";
+
+const TAGS = {
+    SPRING: {
+        name: "Spring Boot",
+        class: "bg-[#3b6f26]",
+        icon: SpringBootIcon
+    },
+    ANGULAR: {
+        name: "Angular",
+        class: "bg-[#ae0342]",
+        icon: AngularIcon
+    }
+};
+const PROJECTS = [
+    {
+        id: "conforzone",
+        title: "Conforzone Eficiencias",
+        description:
+            "Desarrollo y mantenimiento de la página oficial de Conforzone Eficiencias, una página web para usuarios que necesiten consultar servicios relacionados con la climatización en su inmueble.",
+        link: "https://conforzoneeficiencias.es",
+        linkFront: "https://github.com/daaniigomez29/Conforzone-Project-Front",
+        linkBack: "https://github.com/daaniigomez29/Conforzone-Project-Back",
+        image: "src/assets/128shots_so.png",
+        tags: [TAGS.SPRING, TAGS.ANGULAR],
+    },
+];
+---
+
+{
+    PROJECTS.map(
+        ({
+            id,
+            title,
+            description,
+            link,
+            linkFront,
+            linkBack,
+            image,
+            tags,
+        }) => (
+            <article id={id} class="flex flex-col md:flex-row gap-y-5 gap-x-10 pt-4 md:w-200">
+                <div class="flex items-center">
+                    <img
+                        src={image}
+                        class="w-full items-center transition duration-500 md:group-hover:scale-105"
+                        alt=""
+                    />
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                        {title}
+                    </h3>
+                    <ul class="flex flex-row gap-x-2 pt-1">
+                        {tags.map((tag) => (
+                            <li>
+                                <span class={`flex gap-x-2 items-center rounded-full justify-center py-1 px-2 text-xs ${tag.class}`}>
+                                    <tag.icon class="size-5" /> {tag.name}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+                    <h4 class="mt-2 text-gray-700 dark:text-gray-400 text-pretty">
+                        {description}
+                    </h4>
+                    <div class="flex gap-x-2 pt-2">
+                    {
+                    link && (
+                        <a href={link} target="_blank" class="inline-flex gap-2 items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"><ProjectIcon class="size-6"/> Preview <svg class="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg></a>
+                            )
+                    }
+                    {
+                    linkFront && (
+                        <a href={linkFront} target="_blank" class="inline-flex gap-2 items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"><GitHubIcon class="size-6"/> Front <svg class="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg></a>
+                            )
+                    }
+                    {
+                    linkBack && (
+                        <a href={linkBack} target="_blank" class="inline-flex gap-2 items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"><GitHubIcon class="size-6"/> Back <svg class="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg></a>
+                            )
+                    }
+                    </div>
+                </div>
+            </article>
+        ),
+    )
+}
