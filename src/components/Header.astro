@@ -2,12 +2,72 @@
 import NavElement from "./NavElement.astro";
 ---
 
-<header class="flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto">    
-    <nav class="flex flex-row gap-x-7">
-        <NavElement href="#inicio">Inicio</NavElement> 
+<header class="fixed top-0 z-10 py-2 flex items-center justify-center w-full mx-auto mt-2">    
+    <nav class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center shadow backdrop-blur-xl border-1">
         <NavElement href="#experiencia">Experiencia</NavElement> 
         <NavElement href="#proyectos">Proyectos</NavElement>
         <NavElement href="#sobre-mi">Sobre mí</NavElement>
         <NavElement href="#contacto">Contacto</NavElement>
     </nav>
 </header>
+
+<script>
+ document.addEventListener("DOMContentLoaded", () => {
+  
+      const sections = document.querySelectorAll("section");
+      const navItems = document.querySelectorAll("header nav a");
+  
+      const callback = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+  
+            navItems.forEach((item) => {
+  
+              if (item.getAttribute("aria-label") === entry.target.id) {
+                item.classList.add("text-green-500");
+              } else {
+                item.classList.remove("text-green-500");
+              }
+            });
+          }
+        });
+      };
+  
+      const observer = new IntersectionObserver(callback, {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.3,
+      });
+  
+      sections.forEach((section) => {
+        observer.observe(section);
+      });
+  
+      document.onvisibilitychange = () => {
+        if (document.visibilityState === "hidden") {
+          observer.disconnect();
+        } else {
+          sections.forEach((section) => {
+            observer.observe(section);
+          });
+        }
+      };
+    });
+  </script>
+  
+  
+<!--
+<style>
+  nav {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  @keyframes nav-shadown {
+    to {
+      @apply shadow-lg ring-1 backdrop-blur bg-black/50 ring-white/10;
+    }
+  }
+</style>
+-->
