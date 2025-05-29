@@ -19,22 +19,22 @@ const TAGS = {
     },
     MYSQL: {
         name: "MySQL",
-        class: "bg-[#3b6f26]",
+        class: "bg-[#0099a8]",
         icon: MySQLIcon
     },
     HIBERNATE: {
         name: "Hibernate",
-        class: "bg-[#ae0342]",
+        class: "bg-[#a28a54]",
         icon: HibernateIcon
     },
     JWT: {
         name: "JWT",
-        class: "bg-[#3b6f26]",
+        class: "bg-[#292929]",
         icon: JwtIcon
     },
     RAILWAY: {
         name: "Railway",
-        class: "bg-[#3b6f26]",
+        class: "bg-[#292929]",
         icon: RailwayIcon
     },
     ANGULAR: {
@@ -44,12 +44,12 @@ const TAGS = {
     },
     TYPESCRIPT: {
         name: "TypeScript",
-        class: "bg-[#ae0342]",
+        class: "bg-[#1c4b88]",
         icon: TypeScriptIcon
     },
     VERCEL: {
         name: "Vercel",
-        class: "bg-[#ae0342]",
+        class: "bg-[#292929]",
         icon: VercelIcon
     },
 };
@@ -91,19 +91,20 @@ const PROJECTS = [
             image,
             tags,
         }) => (
-            <article id={id} class="scroll-m-50 flex flex-col md:flex-row gap-y-5 gap-x-10 pt-4 md:w-200 pb-10">
-                <div class="flex items-center">
+            <article id={id} class="scroll-m-50 flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0 pb-20">
+                <div class="flex items-center w-full md:w-1/2">
                     <img
                         src={image}
-                        class="w-full items-center transition duration-500 md:group-hover:scale-105"
+                        class="w-full h-56 duration-500 sm:h-full"
+                        loading="lazy"
                         alt=""
                     />
                 </div>
-                <div>
+                <div class="w-full md:w-1/2 md:max-w-lg">
                     <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">
                         {title}
                     </h3>
-                    <ul class="flex flex-row gap-x-2 pt-1">
+                    <ul class="flex flex-row flex-wrap gap-2 pt-1">
                         {tags.map((tag) => (
                             <li>
                                 <span class={`flex gap-x-2 items-center rounded-full justify-center py-1 px-2 text-xs ${tag.class}`}>

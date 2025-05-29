@@ -4,6 +4,7 @@ import Experience from "../components/Experience.astro";
 import Projects from "../components/Projects.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SocialPill from "../components/SocialPill.astro";
+import AboutMeIcon from "../icons/AboutMeIcon.astro";
 import Briefcase from "../icons/Briefcase.astro";
 import CvIcon from "../icons/CvIcon.astro";
 import GitHubIcon from "../icons/GitHubIcon.astro";
@@ -55,13 +56,18 @@ import Layout from "../layouts/Layout.astro";
             </nav>
         </SectionContainer>
 
-        <SectionContainer id="experiencia" class="pb-30">
+        <SectionContainer id="experiencia" class="pb-25">
             <h2 class="text-3xl font-bold flex gap-x-3 items-center justify-start"><Briefcase class="size-7"/> Experiencia laboral</h2>
             <Experience/>
         </SectionContainer>
 
-        <SectionContainer id="proyectos">
-            <h2 class="text-3xl font-bold flex gap-x-3 items-center justify-start pb-2"><ProjectIcon class="size-7"/> Proyectos</h2>
+        <SectionContainer id="proyectos"  class="pb-25">
+            <h2 class="text-3xl font-bold flex gap-x-3 items-center justify-start pb-5"><ProjectIcon class="size-7"/> Proyectos</h2>
+            <Projects/>
+        </SectionContainer>
+
+        <SectionContainer id="sobre-mi">
+            <h2 class="text-3xl font-bold flex gap-x-3 items-center justify-start pb-5"><AboutMeIcon class="size-8"/> Sobre mí</h2>
             <Projects/>
         </SectionContainer>
     </main>
