@@ -9,49 +9,66 @@ import TypeScriptIcon from "../icons/TypeScriptIcon.astro";
 import HibernateIcon from "../icons/HibernateIcon.astro";
 import VercelIcon from "../icons/VercelIcon.astro";
 import RailwayIcon from "../icons/RailwayIcon.astro";
-
+import DockerIcon from "../icons/DockerIcon.astro";
+import WebSocketIcon from "../icons/WebSocketIcon.astro";
+import BootstrapIcon from "../icons/BootstrapIcon.astro";
 
 const TAGS = {
     SPRING: {
         name: "Spring Boot",
         class: "bg-[#3b6f26]",
-        icon: SpringBootIcon
+        icon: SpringBootIcon,
     },
     MYSQL: {
         name: "MySQL",
         class: "bg-[#0099a8]",
-        icon: MySQLIcon
+        icon: MySQLIcon,
     },
     HIBERNATE: {
         name: "Hibernate",
         class: "bg-[#a28a54]",
-        icon: HibernateIcon
+        icon: HibernateIcon,
     },
     JWT: {
         name: "JWT",
         class: "bg-[#292929]",
-        icon: JwtIcon
+        icon: JwtIcon,
     },
     RAILWAY: {
         name: "Railway",
         class: "bg-[#292929]",
-        icon: RailwayIcon
+        icon: RailwayIcon,
     },
     ANGULAR: {
         name: "Angular",
-        class: "bg-[#ae0342]",
-        icon: AngularIcon
+        class: "bg-[linear-gradient(190deg,_rgba(188,15,140,1)_0%,_rgba(173,4,68,1)_50%,_rgba(122,30,171,1)_100%)]",
+        icon: AngularIcon,
     },
     TYPESCRIPT: {
         name: "TypeScript",
         class: "bg-[#1c4b88]",
-        icon: TypeScriptIcon
+        icon: TypeScriptIcon,
     },
     VERCEL: {
         name: "Vercel",
         class: "bg-[#292929]",
-        icon: VercelIcon
+        icon: VercelIcon,
     },
+    DOCKER: {
+        name: "Docker",
+        class: "bg-[#00538d]",
+        icon: DockerIcon,
+    },
+    WEBSOCKETS: {
+        name: "WebSockets",
+        class: "bg-[#584c50]",
+        icon: WebSocketIcon,
+    },
+    BOOTSTRAP: {
+       name: "Bootstrap",
+       class: "bg-[#330174]",
+       icon: BootstrapIcon, 
+    }
 };
 const PROJECTS = [
     {
@@ -63,18 +80,53 @@ const PROJECTS = [
         linkFront: "https://github.com/daaniigomez29/Conforzone-Project-Front",
         linkBack: "https://github.com/daaniigomez29/Conforzone-Project-Back",
         image: "src/assets/128shots_so.png",
-        tags: [TAGS.SPRING, TAGS.MYSQL, TAGS.HIBERNATE, TAGS.JWT, TAGS.RAILWAY, TAGS.ANGULAR, TAGS.TYPESCRIPT, TAGS.VERCEL],
+        tags: [
+            TAGS.SPRING,
+            TAGS.MYSQL,
+            TAGS.HIBERNATE,
+            TAGS.JWT,
+            TAGS.RAILWAY,
+            TAGS.ANGULAR,
+            TAGS.TYPESCRIPT,
+            TAGS.BOOTSTRAP,
+            TAGS.VERCEL,
+        ],
     },
     {
-        id: "2",
-        title: "Conforzone Eficiencias",
+        id: "bookmate",
+        title: "BookMate",
         description:
-            "Desarrollo y mantenimiento de la página oficial de Conforzone Eficiencias, una página web para usuarios que necesiten consultar servicios relacionados con la climatización en su inmueble.",
-        link: "https://conforzoneeficiencias.es",
-        linkFront: "https://github.com/daaniigomez29/Conforzone-Project-Front",
-        linkBack: "https://github.com/daaniigomez29/Conforzone-Project-Back",
-        image: "src/assets/128shots_so.png",
-        tags: [TAGS.SPRING, TAGS.ANGULAR],
+            "Desarrollo de una aplicación web para mi TFG dirigida a los amantes de los libros. Los usuarios podrán explorar una amplia colección de libros y gestionar sus favoritos, además de contar con un sistema social que les permitirá añadir amigos y chatear con ellos.",
+        linkFront: "https://github.com/daaniigomez29/TFG_front",
+        linkBack: "https://github.com/daaniigomez29/TFG",
+        image: "src/assets/231shots_so.png",
+        tags: [
+            TAGS.SPRING,
+            TAGS.MYSQL,
+            TAGS.HIBERNATE,
+            TAGS.JWT,
+            TAGS.WEBSOCKETS,
+            TAGS.DOCKER,
+            TAGS.ANGULAR,
+            TAGS.TYPESCRIPT,
+            TAGS.BOOTSTRAP
+        ],
+    },
+    {
+        id: "proyectoEviden",
+        title: "Reserva de puestos",
+        description:
+            "Desarrollo de una aplicación web interna para Eviden / Atos, realizada por un equipo de 5 personas. Su objetivo era gestionar la reserva de puestos de trabajo dentro de las oficinas, diferenciando entre espacios reservados para equipos concretos y otros de uso libre.",
+        image: "src/assets/no-image.png",
+        tags: [
+            TAGS.SPRING,
+            TAGS.MYSQL,
+            TAGS.HIBERNATE,
+            TAGS.JWT,
+            TAGS.ANGULAR,
+            TAGS.TYPESCRIPT,
+            TAGS.BOOTSTRAP
+        ],
     },
 ];
 ---
@@ -91,23 +143,29 @@ const PROJECTS = [
             image,
             tags,
         }) => (
-            <article id={id} class="scroll-m-50 flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0 pb-20">
-                <div class="flex items-center w-full md:w-1/2">
-                    <img
-                        src={image}
-                        class="w-full h-56 duration-500 sm:h-full"
-                        loading="lazy"
-                        alt=""
-                    />
+            <article
+                id={id}
+                class="scroll-m-50 flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0 pb-20"
+            >
+                <div class="w-full md:w-1/2">
+                    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+                        <img
+                            class="w-full h-56 transition duration-500 sm:h-full"
+                            loading="lazy"
+                            src={image}
+                        />
+                    </div>
                 </div>
                 <div class="w-full md:w-1/2 md:max-w-lg">
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 pb-2">
                         {title}
                     </h3>
-                    <ul class="flex flex-row flex-wrap gap-2 pt-1">
+                    <ul class="flex flex-row flex-wrap gap-2 py-1">
                         {tags.map((tag) => (
                             <li>
-                                <span class={`flex gap-x-2 items-center rounded-full justify-center py-1 px-2 text-xs ${tag.class}`}>
+                                <span
+                                    class={`flex gap-x-2 items-center rounded-full justify-center py-1 px-2 text-xs ${tag.class}`}
+                                >
                                     <tag.icon class="size-5" /> {tag.name}
                                 </span>
                             </li>
@@ -117,22 +175,33 @@ const PROJECTS = [
                         {description}
                     </h4>
                     <div class="flex gap-2 pt-2">
-                    {
-                    link && (
-                        <a href={link} target="_blank" class="inline-flex gap-2 items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"><ProjectIcon class="size-6"/> Preview
-                        </a>
-                            )
-                    }
-                    {
-                    linkFront && (
-                        <a href={linkFront} target="_blank" class="inline-flex gap-2 items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"><GitHubIcon class="size-6"/> Front</a>
-                            )
-                    }
-                    {
-                    linkBack && (
-                        <a href={linkBack} target="_blank" class="inline-flex gap-2 items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"><GitHubIcon class="size-6"/> Back</a>
-                            )
-                    }
+                        {link && (
+                            <a
+                                href={link}
+                                target="_blank"
+                                class="inline-flex gap-2 items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                            >
+                                <ProjectIcon class="size-6" /> Preview
+                            </a>
+                        )}
+                        {linkFront && (
+                            <a
+                                href={linkFront}
+                                target="_blank"
+                                class="inline-flex gap-2 items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                            >
+                                <GitHubIcon class="size-6" /> Front
+                            </a>
+                        )}
+                        {linkBack && (
+                            <a
+                                href={linkBack}
+                                target="_blank"
+                                class="inline-flex gap-2 items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                            >
+                                <GitHubIcon class="size-6" /> Back
+                            </a>
+                        )}
                     </div>
                 </div>
             </article>

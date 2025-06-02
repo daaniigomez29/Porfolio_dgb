@@ -1,4 +1,5 @@
 ---
+import AboutMe from "../components/AboutMe.astro";
 import Badge from "../components/Badge.astro";
 import Experience from "../components/Experience.astro";
 import Projects from "../components/Projects.astro";
@@ -22,14 +23,18 @@ import Layout from "../layouts/Layout.astro";
         <SectionContainer class="py-30 pb-30">
             <div class="flex items-center gap-x-5">
                 <img src="/src/assets/profile.png" class="rounded-full size-30 mb-5" alt="">
+                <Badge class="block md:hidden">
+                    <span class="flex size-2 shrink-0 me-3 bg-green-400 rounded-full"></span>
+                    Disponible para trabajar
+                </Badge>
             </div>
             <div class="flex gap-3 items-center">
             <h1 class="text-white text-4xl lg:text-5xl font-bold">
                 ¡Hola! Soy <span class="text-blue-400"> Daniel</span>
 
             </h1>
-            <Badge>
-               <span class="flex size-2 me-3 bg-green-400 rounded-full"></span>
+            <Badge class="hidden md:block">
+               <span class="flex size-2 shrink-0 me-3 bg-green-400 rounded-full"></span>
                Disponible para trabajar
            </Badge>
            </div>   
@@ -68,7 +73,7 @@ import Layout from "../layouts/Layout.astro";
 
         <SectionContainer id="sobre-mi">
             <h2 class="text-3xl font-bold flex gap-x-3 items-center justify-start pb-5"><AboutMeIcon class="size-8"/> Sobre mí</h2>
-            <Projects/>
+            <AboutMe/>
         </SectionContainer>
     </main>
 </Layout>
