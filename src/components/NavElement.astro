@@ -1,3 +1,7 @@
-<a class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500" {...Astro.props}>
+---
+const { ariaLabel } = Astro.props
+---
+
+<a class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500" aria-label={ariaLabel} {...Astro.props}>
     <slot/>
 </a>

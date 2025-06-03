@@ -4,9 +4,9 @@ import NavElement from "./NavElement.astro";
 
 <header class="fixed top-0 z-10 py-2 flex items-center justify-center w-full mx-auto mt-2">    
     <nav class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center shadow backdrop-blur-xl border-1">
-        <NavElement href="#experiencia">Experiencia</NavElement> 
-        <NavElement href="#proyectos">Proyectos</NavElement>
-        <NavElement href="#sobre-mi">Sobre mí</NavElement>
+        <NavElement href="#experiencia" ariaLabel="experiencia">Experiencia</NavElement> 
+        <NavElement href="#proyectos" ariaLabel="proyectos">Proyectos</NavElement>
+        <NavElement href="#sobre-mi" ariaLabel="sobre-mi">Sobre mí</NavElement>
         <NavElement href="mailto:danielgomezbenitez29@gmail.com">Contacto</NavElement>
     </nav>
 </header>
@@ -22,11 +22,11 @@ import NavElement from "./NavElement.astro";
           if (entry.isIntersecting) {
   
             navItems.forEach((item) => {
-  
+              console.log(entry.target.id)
               if (item.getAttribute("aria-label") === entry.target.id) {
-                item.classList.add("text-green-500");
+                item.classList.add("text-blue-500");
               } else {
-                item.classList.remove("text-green-500");
+                item.classList.remove("text-blue-500");
               }
             });
           }
@@ -54,20 +54,3 @@ import NavElement from "./NavElement.astro";
       };
     });
   </script>
-  
-  
-<!--
-<style>
-  nav {
-    animation: nav-shadown 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
-  }
-
-  @keyframes nav-shadown {
-    to {
-      @apply shadow-lg ring-1 backdrop-blur bg-black/50 ring-white/10;
-    }
-  }
-</style>
--->
