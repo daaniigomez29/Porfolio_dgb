@@ -12,6 +12,8 @@ import RailwayIcon from "../icons/RailwayIcon.astro";
 import DockerIcon from "../icons/DockerIcon.astro";
 import WebSocketIcon from "../icons/WebSocketIcon.astro";
 import BootstrapIcon from "../icons/BootstrapIcon.astro";
+import AstroIcon from "../icons/AstroIcon.astro";
+import TailwindIcon from "../icons/TailwindIcon.astro";
 
 const TAGS = {
     SPRING: {
@@ -68,9 +70,35 @@ const TAGS = {
        name: "Bootstrap",
        class: "bg-[#330174]",
        icon: BootstrapIcon, 
-    }
+    },
+    ASTRO: {
+       name: "Astro",
+       class: "bg-[#000000]",
+       icon: AstroIcon, 
+    },
+    TAILWIND: {
+       name: "TailwindCSS",
+       class: "bg-[#028ac7]",
+       icon: TailwindIcon, 
+    },
+    
 };
 const PROJECTS = [
+    {
+        id: "instalaciones-electricas-jesus-gomez",
+        title: "Instalaciones Eléctricas Jesús Gómez",
+        description:
+            "Desarrollo y mantenimiento de la página oficial de Instalaciones eléctricas Jesús Gómez, una página web para personas que necesiten consultar servicios relacionados con instalaciones, reparaciones y mantenimiento eléctrico. Responsable de todo el ciclo de desarrollo utilizando Astro para el Frontend y optimización de SEO.",
+        link: "https://www.instalacioneselectricasjesusgomez.es",
+        linkFront: "https://github.com/daaniigomez29/InstalacionesElectricas-JesusGomez-Front",
+        image: "/projects/977shots_so.webp",
+        tags: [
+            TAGS.ASTRO,
+            TAGS.TYPESCRIPT,
+            TAGS.TAILWIND,
+            TAGS.VERCEL,
+        ],
+    },
     {
         id: "conforzone",
         title: "Conforzone Eficiencias",
