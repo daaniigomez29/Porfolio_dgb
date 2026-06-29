@@ -15,12 +15,23 @@ import BootstrapIcon from "../icons/BootstrapIcon.astro";
 import AstroIcon from "../icons/AstroIcon.astro";
 import TailwindIcon from "../icons/TailwindIcon.astro";
 import SanityIcon from "../icons/SanityIcon.astro";
+import JavaIcon from "../icons/JavaIcon.astro";
 
 const TAGS = {
+    JAVA: {
+        name: "Java",
+        class: "bg-[#461b04]",
+        icon: JavaIcon,
+    },
     SPRING: {
         name: "Spring Boot",
         class: "bg-[#3b6f26]",
         icon: SpringBootIcon,
+    },
+    MOCKITO: {
+        name: "Mockito",
+        class: "bg-[#3b6f26]",
+        icon: null
     },
     MYSQL: {
         name: "MySQL",
@@ -86,10 +97,34 @@ const TAGS = {
         name:"Sanity CMS",
         class: "bg-black",
         icon: SanityIcon
+    },
+    GITHUB: {
+        name:"Github Actions",
+        class: "bg-black",
+        icon: GitHubIcon
     }
-    
 };
 const PROJECTS = [
+    {
+        id: "reserveatapi",
+        title: "ReservEat Backend",
+        description:
+            "Desarrollo del backend de ReservEat, app web que permite a propietarios gestionar mesas y reservas de su propio restaurante y a clientes reservar en ellos. Responsable del diseño, desarrollo y despliegue del ciclo completo, destacando su arquitectura hexagonal para un mejor mantenimiento a futuro y una mayor facilidad para testear. Implementé CI/CD + despliegue containerizado para despliegues más rápidos y fiables. Incluye migraciones en Flyway para un mejor sistema de versionado del esquema de la base de datos. Tests unitarios y de integración para garantizar fiabilidad antes de desplegar. Backend completo, frontend en desarrollo.",
+        //link: "",
+        linkBack: "https://github.com/daaniigomez29/reserveat-api",
+        image: "/no-image.webp",
+        tags: [
+            TAGS.JAVA,
+            TAGS.SPRING,
+            TAGS.MYSQL,
+            TAGS.HIBERNATE,
+            TAGS.JWT,
+            TAGS.MOCKITO,
+            TAGS.DOCKER,
+            TAGS.RAILWAY,
+            TAGS.GITHUB
+        ],
+    },
     {
         id: "instalaciones-electricas-jesus-gomez",
         title: "Instalaciones Eléctricas Jesús Gómez",
@@ -116,6 +151,7 @@ const PROJECTS = [
         linkBack: "https://github.com/daaniigomez29/Conforzone-Project-Back",
         image: "/projects/128shots_so.webp",
         tags: [
+            TAGS.JAVA,
             TAGS.SPRING,
             TAGS.MYSQL,
             TAGS.HIBERNATE,
@@ -136,6 +172,7 @@ const PROJECTS = [
         linkBack: "https://github.com/daaniigomez29/TFG",
         image: "/projects/231shots_so.webp",
         tags: [
+            TAGS.JAVA,
             TAGS.SPRING,
             TAGS.MYSQL,
             TAGS.HIBERNATE,
@@ -154,6 +191,7 @@ const PROJECTS = [
             "Desarrollo de una aplicación web interna para Eviden / Atos, realizada por un equipo de 5 personas. Su objetivo era gestionar la reserva de puestos de trabajo dentro de las oficinas, diferenciando entre espacios reservados para equipos concretos y otros de uso libre.",
         image: "/no-image.webp",
         tags: [
+            TAGS.JAVA,
             TAGS.SPRING,
             TAGS.MYSQL,
             TAGS.HIBERNATE,
@@ -201,7 +239,8 @@ const PROJECTS = [
                                 <span
                                     class={`flex gap-x-2 items-center rounded-full justify-center py-1 px-2 text-xs ${tag.class}`}
                                 >
-                                    <tag.icon class="size-5" /> {tag.name}
+                                    {tag.icon && <tag.icon class="size-5" /> }
+                                    {tag.name}
                                 </span>
                             </li>
                         ))}
